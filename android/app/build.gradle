@@ -1,0 +1,56 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace = "com.mashendig17al.quranpro"
+    compileSdk = 35
+
+    defaultConfig {
+        applicationId = "com.mashendig17al.quranpro"
+        minSdk = 21
+        targetSdk = 35
+        versionCode = 3
+        versionName = "1.0.1"
+    }
+
+    signingConfigs {
+        release {
+            storeFile = file("../release.keystore")
+            storePassword = "AlQuran17alSecure2026"
+            keyAlias = "alquran_release"
+            keyPassword = "AlQuran17alSecure2026"
+            enableV1Signing = true
+            enableV2Signing = true
+            enableV3Signing = true
+            enableV4Signing = true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled = false
+            shrinkResources = false
+            signingConfig = signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig = signingConfigs.release
+        }
+    }
+
+    lint {
+        abortOnError false
+        checkReleaseBuilds true
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    // Zero external dependencies needed!
+    // WebView, JavaScript, and AndroidBridge are 100% built into Android Framework SDK.
+}

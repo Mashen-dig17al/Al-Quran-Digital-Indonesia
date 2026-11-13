@@ -1,0 +1,25 @@
+{
+  "name": "al-quran-digital-indonesia",
+  "version": "1.0.1",
+  "description": "Aplikasi Al Quran Digital Indonesia Standar Rasm Utsmani Kemenag RI, Multi-Qari Offline Audio, dan Terjemahan Resmi",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "node scratch/sync_bundle.cjs && node build-mobile.js",
+    "test:audit": "node scratch/audit_phase1_complete.cjs",
+    "test:release": "node scratch/test_release_suites.cjs"
+  },
+  "keywords": [
+    "al-quran",
+    "digital-indonesia",
+    "kemenag",
+    "rasm-utsmani",
+    "murottal",
+    "offline-quran",
+    "pwa"
+  ],
+  "author": "Mashendig17al",
+  "license": "Commercial"
+}

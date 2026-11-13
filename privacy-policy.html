@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kebijakan Privasi - Al Quran Digital Indonesia</title>
+  <style>
+    :root {
+      --bg: #0B192C;
+      --card-bg: #112233;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --accent: #EA580C;
+      --accent-gold: #F59E0B;
+      --border: rgba(255, 255, 255, 0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+      padding: 30px 20px 60px;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 36px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(234, 88, 12, 0.15);
+      color: var(--accent);
+      border: 1px solid rgba(234, 88, 12, 0.35);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: #FFF;
+      margin-bottom: 6px;
+    }
+    .subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--accent-gold);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    p, li {
+      font-size: 14px;
+      color: var(--text-main);
+      margin-bottom: 10px;
+    }
+    ul {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    .highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 12px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+    a {
+      color: #38BDF8;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    code {
+      background: rgba(255,255,255,0.08);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <span class="badge">Kebijakan Privasi & Keamanan Data (Data Safety)</span>
+      <h1>Kebijakan Privasi</h1>
+      <div class="subtitle">Aplikasi: <b>Al Quran Digital Indonesia</b> (<code>com.mashendig17al.quranpro</code>)<br>Pengembang: Hendra Setiawan (@mashendig17al) • Terakhir Diperbarui: November 2026</div>
+    </div>
+
+    <div class="card">
+      <h2>🛡️ 1. Komitmen Privasi Utama: Zero Data Collection</h2>
+      <p>Aplikasi <b>Al Quran Digital Indonesia</b> dirancang dengan memprioritaskan privasi dan ketenangan beribadah pengguna. Kami <b>TIDAK PERNAH</b> mengumpulkan, mencatat, memperjualbelikan, atau membagikan data identitas pribadi pengguna ke server manapun.</p>
+      <ul>
+        <li><b>Bebas Iklan (Ad-Free)</b>: Tidak ada SDK periklanan atau ID pelacak iklan (Advertising ID).</li>
+        <li><b>Bebas Pelacak (Zero Trackers / No Analytics)</b>: Tidak ada integrasi analitik pihak ketiga (seperti Google Analytics, Firebase Analytics, Facebook SDK, dsb.).</li>
+        <li><b>Tanpa Akun Pengguna</b>: Aplikasi dapat digunakan langsung tanpa perlu membuat akun, login, atau memberikan email/nomor ponsel.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>🌐 2. Transparansi Penggunaan API Pihak Ketiga & Audio CDN</h2>
+      <p>Untuk melengkapi data 114 surat dan lantunan murottal audio yang diunduh atas inisiatif pengguna, aplikasi berinteraksi dengan layanan pihak ketiga melalui protokol HTTPS aman:</p>
+      <ul>
+        <li><b>Layanan API Al-Qur'an (equran.id)</b>: Teks ayat dan terjemahan Bahasa Indonesia yang diunduh secara online diambil melalui REST API terbuka yang disediakan secara independen oleh komunitas pengembang <code>equran.id</code> (mengacu pada standar terjemahan dan susunan Mushaf Standar Indonesia Kemenag RI). Aplikasi <i>tidak mengirimkan informasi profil pengguna</i> saat melakukan permintaan HTTP GET ke API tersebut.</li>
+        <li><b>CDN Murottal Audio (EveryAyah.com & QuranCDN)</b>: Berkas audio murottal per ayat diunduh dari repositori publik terpercaya (seperti <code>everyayah.com</code> dan <code>cdn.equran.id</code>). Permintaan hanya meminta file audio statis (.mp3) tanpa melampirkan token atau data pengenal pengguna.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>💾 3. Data yang Disimpan Secara Eksklusif di Perangkat (Lokal)</h2>
+      <p>Seluruh riwayat dan preferensi pengguna disimpan 100% di memori perangkat lokal pengguna (IndexedDB & LocalStorage):</p>
+      <ul>
+        <li><b>Teks Surat & Terjemahan</b>: Tersimpan di IndexedDB <code>QuranOfflineDB</code> agar dapat dibaca selamanya tanpa internet.</li>
+        <li><b>Audio Murottal Offline</b>: File audio yang berhasil diunduh disimpan dalam bentuk Blob terisolasi di IndexedDB <code>QuranAudioDB</code>.</li>
+        <li><b>Penanda Terakhir Baca & Bookmark</b>: Tersimpan di LocalStorage lokal untuk memudahkan melanjutkan membaca.</li>
+        <li><b>Preferensi Pengguna</b>: Pilihan qari, ukuran font, tema gelap/terang, dan opsi tajwid.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>🔐 4. Izin Akses Android (Permissions) & Tujuannya</h2>
+      <p>Aplikasi ini hanya meminta izin yang mutlak diperlukan untuk fungsionalitas ibadah, sesuai dengan kebijakan Google Play Store:</p>
+      <ul>
+        <li><b>INTERNET & ACCESS_NETWORK_STATE</b>: Diperlukan saat pertama kali mengunduh teks surat atau audio murottal dari layanan API / CDN pihak ketiga. Setelah diunduh, aplikasi beroperasi penuh secara luring (100% offline).</li>
+        <li><b>POST_NOTIFICATIONS (Android 13+)</b>: Digunakan untuk menampilkan pengingat waktu sholat (Subuh, Dzuhur, Ashar, Maghrib, Isya) di status bar ponsel. Pengguna dapat mematikan izin ini kapan saja di menu Pengaturan.</li>
+        <li><b>USE_EXACT_ALARM</b>: Digunakan secara eksklusif untuk membunyikan pengingat jadwal sholat tepat pada waktunya sesuai perhitungan hisab Indonesia (kategori Alarms & Timers kebijakan Google Play).</li>
+        <li><b>RECEIVE_BOOT_COMPLETED</b>: Digunakan untuk mendaftarkan ulang jadwal pengingat sholat secara otomatis setelah ponsel dinyalakan ulang (reboot).</li>
+        <li><b>VIBRATE & WAKE_LOCK</b>: Digunakan sesaat ketika alarm jadwal sholat berbunyi agar pengguna tidak melewatkan waktu ibadah.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>🗑️ 5. Kontrol Pengguna & Penghapusan Seluruh Data Lokal</h2>
+      <p>Pengguna memiliki kendali mutlak untuk menghapus data dari perangkat mereka kapan saja:</p>
+      <ul>
+        <li><b>Tombol Hapus Semua Data Lokal di Aplikasi</b>: Di menu <b>Pengaturan ➔ Privasi & Keamanan Data</b>, tersedia tombol <code>Reset / Bersihkan Semua Data Lokal</code> yang akan langsung menghapus seluruh database IndexedDB (teks 114 surat dan file murottal yang telah diunduh) serta membersihkan LocalStorage.</li>
+        <li><b>Penghapusan melalui Pengaturan Sistem Android</b>: Pengguna dapat memilih menu <i>Info Aplikasi ➔ Hapus Penyimpanan (Clear Storage)</i> atau menghapus (uninstall) aplikasi untuk menghapus seluruh data tanpa sisa di perangkat.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>📬 6. Kontak Pengembang</h2>
+      <p>Jika Anda memiliki pertanyaan mengenai privasi, transparansi data, atau saran teknis untuk aplikasi ini, silakan hubungi pengembang:</p>
+      <ul>
+        <li><b>Pengembang</b>: Hendra Setiawan (@mashendig17al)</li>
+        <li><b>Email</b>: <a href="mailto:mashendig17al@gmail.com">mashendig17al@gmail.com</a></li>
+        <li><b>Instagram</b>: <a href="https://instagram.com/mashendig17al" target="_blank">@mashendig17al</a></li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <p>© 2026 Al Quran Digital Indonesia (com.mashendig17al.quranpro) • Hak Cipta Dilindungi</p>
+    </div>
+  </div>
+</body>
+</html>

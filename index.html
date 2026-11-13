@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0B192C">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="Aplikasi Al-Qur'an Digital Indonesia Standar Rasm Utsmani Kemenag RI, Jadwal Sholat Indonesia, dan Terjemahan Resmi.">
+  <title>Al-Qur'an Digital Indonesia - Standar Kemenag RI</title>
+
+  <!-- PWA Manifest (Diaktifkan pada HTTP/HTTPS) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+  <script>
+    if (location.protocol.startsWith('http')) {
+      const mf = document.createElement('link');
+      mf.rel = 'manifest';
+      mf.href = 'manifest.json';
+      document.head.appendChild(mf);
+    }
+  </script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+  <!-- Mockup HP / Viewport Utama Aplikasi -->
+  <main class="app-viewport">
+    
+    <!-- Status Bar Mobile (Sesuai Tampilan.1 dan Tampilan.2: 11:24, 5G, Baterai 89%) -->
+    <header class="status-bar">
+      <div style="display: flex; align-items: center; gap: 6px;">
+        <span id="statusBarClock">11:24</span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="opacity: 0.85;">
+          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2Z"/>
+        </svg>
+      </div>
+
+      <div class="status-bar-icons">
+        <!-- Ikon Getar/Mute -->
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+          <line x1="23" y1="9" x2="17" y2="15"/>
+          <line x1="17" y1="9" x2="23" y2="15"/>
+        </svg>
+        <!-- 5G Badge -->
+        <span style="font-size: 10px; font-weight: 800; letter-spacing: 0.5px;">5G</span>
+        <!-- Sinyal Bar -->
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+          <rect x="2" y="16" width="3" height="6" rx="1"/>
+          <rect x="7" y="12" width="3" height="10" rx="1"/>
+          <rect x="12" y="8" width="3" height="14" rx="1"/>
+          <rect x="17" y="4" width="3" height="18" rx="1"/>
+        </svg>
+        <!-- Baterai 89% -->
+        <span style="font-size: 11px; font-weight: 700; background: rgba(255,255,255,0.2); padding: 1px 5px; border-radius: 8px;">89</span>
+      </div>
+    </header>
+
+    <!-- Area Layar Dinamis (Home, Reader, Jadwal Sholat, dll.) -->
+    <section class="screen-container" id="mainScreenArea">
+      <!-- Loading State jika proses memuat -->
+      <div style="padding: 60px 20px; text-align: center; color: #FFF;">
+        <div style="font-size: 36px; margin-bottom: 12px; animation: floatSubtle 2s ease-in-out infinite;">📖</div>
+        <div style="font-size: 16px; font-weight: 700; color: #F97316;">Memuat Al-Qur'an Digital Indonesia...</div>
+      </div>
+    </section>
+
+    <!-- Wadah Modal-Modal -->
+    <div id="lastReadModalContainer"></div>
+    <div id="settingsModalContainer"></div>
+    <div id="offlineModalContainer"></div>
+    <div id="kemenagModalContainer"></div>
+    <div id="hadithModalContainer"></div>
+    <div id="privacyModalContainer"></div>
+    <div id="shareImageModalContainer"></div>
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Permanent Audio Elements for Murottal Playback -->
+    <audio id="murottalAudio" style="display:none;" preload="none"></audio>
+    <audio id="murottalPreloadAudio" style="display:none;" preload="none"></audio>
+
+    <!-- Bottom Navigation Bar (Gaya Native APK) -->
+    <nav class="bottom-nav-bar" id="bottomNavBar"></nav>
+  </main>
+
+  <!-- Floating Toolbar Kontrol Khusus Desktop -->
+  <aside class="desktop-controls-bar">
+    <button 
+      id="viewModeToggleBtn"
+      style="background: #1E3E62; border: 1px solid #3B82F6; color: #FFF; font-weight: 700; font-size: 12px; padding: 8px 14px; border-radius: 20px; cursor: pointer; display: flex; align-items: center; gap: 6px;"
+      onclick="window.app && window.app.toggleViewMode()">
+      💻 Layar Lebar
+    </button>
+
+    <button 
+      style="background: rgba(249, 115, 22, 0.2); border: 1px solid var(--color-orange-primary); color: var(--color-orange-primary); font-weight: 700; font-size: 12px; padding: 8px 14px; border-radius: 20px; cursor: pointer;"
+      onclick="window.app && window.app.openKemenagModal()">
+      🇮🇩 Standar Kemenag
+    </button>
+
+    <button 
+      style="background: #122238; border: 1.5px solid #F97316; color: #FFF; font-weight: 700; font-size: 12px; padding: 8px 14px; border-radius: 20px; cursor: pointer; display: flex; align-items: center; gap: 5px;"
+      onclick="window.app && window.app.openSettingsModal()">
+      ⚙️ Pengaturan
+    </button>
+  </aside>
+
+  <!-- Script Standalone (Bekerja langsung di file:// tanpa terhalang CORS modul Chrome) -->
+  <script src="js/app.bundle.js"></script>
+
+  <!-- Service Worker Registration for PWA Offline Capability (Hanya jika dijalankan via http/https) -->
+  <script>
+    if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(() => {});
+      });
+    }
+  </script>
+
+</body>
+</html>

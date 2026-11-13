@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Kubah dan Menara Siluet Bersih untuk Ikon Notifikasi Bilah Atas Android -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M12,2C11.5,3.5 9,5.5 8,8C7,10.7 7.5,13.3 9.4,14.7V16.4H14.6V14.7C16.5,13.3 17,10.7 16,8C15,5.5 12.5,3.5 12,2Z"/>
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M7,18H17V20H7V18Z"/>
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M6,21H18V22.5H6V21Z"/>
+</vector>
